@@ -10,12 +10,32 @@ router.get('/', function(req, res, next) {
 });
 
 //查询列表
-router.post('/find', function(req, res, next) {
-    mongo.find('app', 'zengShangaiCha', function(data) {
-        if (data) {
-            res.send({ code: 1, message: data })
-        }
+router.get('/find', function(req, res, next) {
+    var page = req.query.page;
+    var pageSize = req.query.pageSize;
+    console.log(page, pageSize)
+    mongo.find('app', 'zengShangaiCha', function(result) {
+        // if (data) {
+        //     res.send({ code: 1, message: data })
+        // }
+        var len = result.length;
+        var total = Math.ceil(len / pageSize) // 总页数
+        renderList(total)
     })
+
+    function renderList(total) {
+        var skip = pageSize * (page - 1)
+        mongo.find('app', 'zengShangaiCha', {}, function(result) {
+            if (result.length > 0) {
+                res.send({ code: 1, message: result })
+            } else {
+                res.send({ code: 0, message: 'err' })
+            }
+        }, {
+            skip: skip,
+            limit: pageSize
+        })
+    }
 })
 
 //查看详情

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			.mui-table-view{
+				top:2.8125rem;
+			}
+			.mui-btn-primary{
+				float: right;
+				margin-top: 3.75rem;
+				margin-right: 1.25rem;
+			}
+			.mui-btn-danger{
+				float: right;
+				margin-top: 3.75rem;
+				margin-right: 2.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">添加信息</h1>
+		</header>
+		<ul class="mui-table-view">
+			<div class="mui-input-row">
+				<label>姓名</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入姓名">
+			</div>
+			<div class="mui-input-row">
+				<label>年龄</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入年龄">
+			</div>
+			<div class="mui-input-row">
+				<label>地址</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入地址">
+			</div>
+			<div class="mui-input-row">
+				<label>身份证号</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入身份证号">
+			</div>
+			<div class="mui-button-row">
+				<button type="button" class="mui-btn mui-btn-primary" >确认</button>
+				<button type="button" class="mui-btn mui-btn-danger" >取消</button>
+			</div>
+			
+		</ul>
+		<script type="text/javascript" src="/js/libs/require.js" data-main="/js/page/insert.js">
+		</script>
+	</body>
+</html>
